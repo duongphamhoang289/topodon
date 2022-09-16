@@ -1,0 +1,84 @@
+{% extends 'ticket/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Customer:</h5>
+            <hr>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
+            <a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Customer</a>
+
+        </div>
+    </div>
+
+    <!-- <div class="col-md">
+        <div class="card card-body">
+            <h5>Contact Information</h5>
+            <hr>
+            <p>Name: </p>
+            <p>Phone: </p>
+        </div>
+    </div> -->
+
+    <!-- <div class="col-md">
+        <div class="card card-body">
+            <h5>Total Tickets</h5>
+            <hr>
+            <h1 style="text-align: center;padding: 10px"></h1>
+        </div>
+    </div> -->
+</div>
+
+
+<br>
+<div class="row">
+    <div class="col">
+        <div class="card card-body">
+            <form method="get">
+                {{my_filter.form}}
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Department</th>
+                    <th>Customer</th>
+                    <th>Opiniom</th>
+                    <th>Created Date</th>
+                    <th>Start Date</th>
+                    <th>Resolved Date</th>
+                    <th>Solution</th>
+                    <th>Status</th>
+                </tr>
+
+                {% for i in tickets %}
+                <tr>
+                    <td>{{i.department_id}}</td>
+                    <td>{{i.customer}}</td>
+                    <td>{{i.opinion}}</td>
+                    <td>{{i.date_created}}</td>
+                    <td>{{i.date_start}}</td>
+                    <td>{{i.date_resolved}}</td>
+                    <td>{{i.solution}}</td>
+                    <td>{{i.status}}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
